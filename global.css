@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-background: #f7f8fa;
+    --color-surface: #ffffff;
+    --color-text-primary: #101828;
+    --color-text-secondary: #667085;
+  }
+
+  .dark {
+    --color-background: #0b1020;
+    --color-surface: #121a2b;
+    --color-text-primary: #f8fafc;
+    --color-text-secondary: #c7d2e0;
+  }
+}
+
+@layer components {
+  .screen {
+    @apply flex-1 bg-light-background px-4;
+  }
+
+  .dark .screen {
+    @apply bg-dark-background;
+  }
+
+  .card {
+    @apply rounded-md border border-light-border bg-light-surface p-4 shadow-card;
+  }
+
+  .dark .card {
+    @apply border-dark-border bg-dark-surface;
+  }
+
+  .section-title {
+    @apply text-h2 text-light-primary;
+  }
+
+  .dark .section-title {
+    @apply text-dark-primary;
+  }
+
+  .muted-text {
+    @apply text-body-md text-light-secondary;
+  }
+
+  .dark .muted-text {
+    @apply text-dark-secondary;
+  }
+
+  .money-positive {
+    @apply text-money-positive;
+  }
+
+  .money-negative {
+    @apply text-money-negative;
+  }
+
+  .money-pending {
+    @apply text-money-pending;
+  }
+}

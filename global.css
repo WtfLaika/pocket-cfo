@@ -4,51 +4,50 @@
 
 @layer base {
   :root {
-    --color-background: #f7f8fa;
-    --color-surface: #ffffff;
-    --color-text-primary: #101828;
-    --color-text-secondary: #667085;
+    --app-background: theme("colors.palette.light.background");
+    --app-surface: theme("colors.palette.light.surface");
+    --app-elevated: theme("colors.palette.light.elevated");
+    --app-border: theme("colors.palette.light.border");
+    --app-selected: theme("colors.palette.light.selected");
+    --app-primary: theme("colors.palette.light.primary");
+    --app-secondary: theme("colors.palette.light.secondary");
+    --app-tertiary: theme("colors.palette.light.tertiary");
+    --app-placeholder: theme("colors.palette.light.placeholder");
+    --app-accent: theme("colors.accent.500");
+    --app-warning: theme("colors.warning.500");
+    --app-danger: theme("colors.danger.500");
   }
 
-  .dark {
-    --color-background: #0b1020;
-    --color-surface: #121a2b;
-    --color-text-primary: #f8fafc;
-    --color-text-secondary: #c7d2e0;
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --app-background: theme("colors.palette.dark.background");
+      --app-surface: theme("colors.palette.dark.surface");
+      --app-elevated: theme("colors.palette.dark.elevated");
+      --app-border: theme("colors.palette.dark.border");
+      --app-selected: theme("colors.palette.dark.selected");
+      --app-primary: theme("colors.palette.dark.primary");
+      --app-secondary: theme("colors.palette.dark.secondary");
+      --app-tertiary: theme("colors.palette.dark.tertiary");
+      --app-placeholder: theme("colors.palette.dark.placeholder");
+    }
   }
 }
 
 @layer components {
   .screen {
-    @apply flex-1 bg-light-background px-4;
-  }
-
-  .dark .screen {
-    @apply bg-dark-background;
+    @apply flex-1 bg-theme-background px-4;
   }
 
   .card {
-    @apply rounded-md border border-light-border bg-light-surface p-4 shadow-card;
-  }
-
-  .dark .card {
-    @apply border-dark-border bg-dark-surface;
+    @apply rounded-md border border-theme-border bg-theme-surface p-4 shadow-card;
   }
 
   .section-title {
-    @apply text-h2 text-light-primary;
-  }
-
-  .dark .section-title {
-    @apply text-dark-primary;
+    @apply text-h2 text-theme-primary;
   }
 
   .muted-text {
-    @apply text-body-md text-light-secondary;
-  }
-
-  .dark .muted-text {
-    @apply text-dark-secondary;
+    @apply text-body-md text-theme-secondary;
   }
 
   .money-positive {

@@ -10,11 +10,56 @@ module.exports = {
 
   presets: [require("nativewind/preset")],
 
-  darkMode: "class",
+  darkMode: "media",
 
   theme: {
     extend: {
       colors: {
+        palette: {
+          light: {
+            background: "#F7F8FA",
+            surface: "#FFFFFF",
+            elevated: "#F1F3F5",
+            border: "#E6E8EE",
+            selected: "#E6E8EE",
+            primary: "#101828",
+            secondary: "#667085",
+            tertiary: "#98A2B3",
+            placeholder: "#667085",
+          },
+          dark: {
+            background: "#050810",
+            surface: "#121A2B",
+            elevated: "#182136",
+            border: "#243048",
+            selected: "#243048",
+            primary: "#F8FAFC",
+            secondary: "#C7D2E0",
+            tertiary: "#90A4C4",
+            placeholder: "#90A4C4",
+          },
+        },
+
+        theme: {
+          background: "var(--app-background)",
+          surface: "var(--app-surface)",
+          elevated: "var(--app-elevated)",
+          border: "var(--app-border)",
+          selected: "var(--app-selected)",
+          primary: "var(--app-primary)",
+          secondary: "var(--app-secondary)",
+          tertiary: "var(--app-tertiary)",
+          placeholder: "var(--app-placeholder)",
+          accent: "var(--app-accent)",
+          warning: "var(--app-warning)",
+          danger: "var(--app-danger)",
+        },
+
+        bg: "var(--app-background)",
+        surface: "var(--app-surface)",
+        card: "var(--app-elevated)",
+        border: "var(--app-border)",
+
         // Brand
         brand: {
           50: "#EEF4FF",
@@ -51,10 +96,10 @@ module.exports = {
         },
 
         navy: {
-          700: "#243048",
-          800: "#182136",
-          900: "#121A2B",
-          950: "#0B1020",
+          700: "var(--app-border)",
+          800: "var(--app-elevated)",
+          900: "var(--app-surface)",
+          950: "var(--app-background)",
         },
 
         // Semantic states
@@ -115,23 +160,25 @@ module.exports = {
 
         // Theme semantic aliases
         light: {
-          background: "#F7F8FA",
-          surface: "#FFFFFF",
-          elevated: "#F1F3F5",
-          border: "#E6E8EE",
-          primary: "#101828",
-          secondary: "#667085",
-          tertiary: "#98A2B3",
+          background: "var(--app-background)",
+          surface: "var(--app-surface)",
+          elevated: "var(--app-elevated)",
+          border: "var(--app-border)",
+          selected: "var(--app-selected)",
+          primary: "var(--app-primary)",
+          secondary: "var(--app-secondary)",
+          tertiary: "var(--app-tertiary)",
         },
 
         dark: {
-          background: "#0B1020",
-          surface: "#121A2B",
-          elevated: "#182136",
-          border: "#243048",
-          primary: "#F8FAFC",
-          secondary: "#C7D2E0",
-          tertiary: "#90A4C4",
+          background: "var(--app-background)",
+          surface: "var(--app-surface)",
+          elevated: "var(--app-elevated)",
+          border: "var(--app-border)",
+          selected: "var(--app-selected)",
+          primary: "var(--app-primary)",
+          secondary: "var(--app-secondary)",
+          tertiary: "var(--app-tertiary)",
         },
       },
 

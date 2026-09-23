@@ -3,6 +3,7 @@
     "name": "Pocket CFO",
     "slug": "pocket-cfo",
     "scheme": "pocketcfo",
+    "userInterfaceStyle": "automatic",
     "web": {
       "bundler": "metro"
     },

@@ -5,20 +5,21 @@ import Animated, { FadeIn } from "react-native-reanimated";
 
 import { ThemedText } from "@/components/themed-text";
 import { ThemedView } from "@/components/themed-view";
-import { useTheme } from "@/hooks/use-theme";
+import { useAppColors } from "@/hooks/use-app-colors";
 
 export function Collapsible({
   children,
   title,
 }: PropsWithChildren & { title: string }) {
   const [isOpen, setIsOpen] = useState(false);
-  const theme = useTheme();
+  const colors = useAppColors();
+  const handleToggle = () => setIsOpen((value) => !value);
 
   return (
     <ThemedView>
       <Pressable
         className="flex-row items-center gap-2 pressed:opacity-70"
-        onPress={() => setIsOpen((value) => !value)}>
+        onPress={handleToggle}>
         <ThemedView
           type="backgroundElement"
           className="h-6 w-6 items-center justify-center rounded-[12px]">
@@ -30,7 +31,7 @@ export function Collapsible({
             }}
             size={14}
             weight="bold"
-            tintColor={theme.text}
+            tintColor={colors.primary}
             style={{ transform: [{ rotate: isOpen ? "-90deg" : "90deg" }] }}
           />
         </ThemedView>

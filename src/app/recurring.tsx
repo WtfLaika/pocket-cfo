@@ -1,5 +1,5 @@
-import { router } from "expo-router";
 import { FlashList } from "@shopify/flash-list";
+import { router } from "expo-router";
 import { Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -12,6 +12,19 @@ export default function RecurringScreen() {
 
   return (
     <SafeAreaView edges={edges} className="flex-1 bg-bg">
+      <View className="gap-6 px-5 pb-5 pt-3">
+        <View className="flex-row items-center gap-3">
+          <Text onPress={handleBack} className="text-3xl text-dark-primary">
+            ‹
+          </Text>
+          <Text className="text-2xl font-semibold text-dark-primary">
+            Recurring payments
+          </Text>
+        </View>
+        <Text className="text-sm leading-5 text-dark-tertiary">
+          Keep an eye on what repeats before it quietly adds up.
+        </Text>
+      </View>
       <FlashList
         data={recurringPayments}
         keyExtractor={(item) => item.id}
@@ -40,21 +53,6 @@ export default function RecurringScreen() {
           </View>
         )}
         ItemSeparatorComponent={() => <View className="h-3" />}
-        ListHeaderComponent={
-          <View className="gap-6 pb-5">
-            <View className="flex-row items-center gap-3 pt-3">
-              <Text onPress={handleBack} className="text-3xl text-dark-primary">
-                ‹
-              </Text>
-              <Text className="text-2xl font-semibold text-dark-primary">
-                Recurring payments
-              </Text>
-            </View>
-            <Text className="text-sm leading-5 text-dark-tertiary">
-              Keep an eye on what repeats before it quietly adds up.
-            </Text>
-          </View>
-        }
         className="flex-1"
         contentContainerClassName="px-5 pb-8"
       />

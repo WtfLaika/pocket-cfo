@@ -1,5 +1,5 @@
-import { useMemo } from "react";
 import { FlashList } from "@shopify/flash-list";
+import { useMemo } from "react";
 import { Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -57,6 +57,19 @@ export default function DashboardScreen() {
 
   return (
     <SafeAreaView edges={topEdges} className="flex-1 bg-bg">
+      <View className="px-5 pb-7 pt-3">
+        <ScreenHeader
+          eyebrow="Monday, September 7"
+          title="Good morning, Alex"
+          action={
+            <View className="h-10 w-10 items-center justify-center rounded-xl border border-dark-border bg-dark-surface">
+              <Text className="font-mono text-xs font-bold text-accent-500">
+                AC
+              </Text>
+            </View>
+          }
+        />
+      </View>
       <FlashList
         data={dashboardItems}
         keyExtractor={(item) => item.key}
@@ -85,7 +98,8 @@ export default function DashboardScreen() {
               />
             );
           }
-          const firstActivityRow = dashboardItems[index - 1]?.type === "activity-heading";
+          const firstActivityRow =
+            dashboardItems[index - 1]?.type === "activity-heading";
           const lastActivityRow = index === dashboardItems.length - 1;
           return (
             <View
@@ -105,19 +119,6 @@ export default function DashboardScreen() {
         }
         ListHeaderComponent={
           <View className="gap-7 pb-7">
-            <View className="pt-3">
-              <ScreenHeader
-                eyebrow="Monday, September 7"
-                title="Good morning, Alex"
-                action={
-                  <View className="h-10 w-10 items-center justify-center rounded-xl border border-dark-border bg-dark-surface">
-                    <Text className="font-mono text-xs font-bold text-accent-500">
-                      AC
-                    </Text>
-                  </View>
-                }
-              />
-            </View>
             <View className="rounded-3xl border border-accent-500/25 bg-accent-500/10 p-5">
               <Text className="font-mono text-[11px] font-bold uppercase tracking-[1.5px] text-accent-500">
                 Total net worth

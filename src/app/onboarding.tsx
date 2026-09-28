@@ -5,7 +5,6 @@ import {
   KeyboardAvoidingView,
   Platform,
   Pressable,
-  ScrollView,
   Text,
   TextInput,
   useWindowDimensions,
@@ -200,14 +199,7 @@ export default function OnboardingScreen() {
           ) : null}
 
           {step === 3 ? (
-            <ScrollView
-              className="flex-1"
-              contentContainerClassName="py-4"
-              keyboardShouldPersistTaps="handled"
-              showsVerticalScrollIndicator={false}>
-              <Text className="font-mono text-[11px] font-bold uppercase tracking-[1.5px] text-dark-tertiary">
-                Step 4 of 4
-              </Text>
+            <View className="flex-1 py-2">
               <Text
                 className={`mt-3 font-semibold text-dark-primary ${compact || narrow ? "text-2xl" : "text-3xl"}`}>
                 Add your first account
@@ -215,7 +207,7 @@ export default function OnboardingScreen() {
               <Text className="mt-3 text-base leading-6 text-dark-tertiary">
                 Start with a simple local account. You can connect more later.
               </Text>
-              <View className={`gap-2 ${compact ? "mt-4" : "mt-8"}`}>
+              <View className="mt-4 gap-2">
                 <Text className="font-mono text-[11px] font-bold uppercase tracking-[1.2px] text-dark-tertiary">
                   Account name
                 </Text>
@@ -224,7 +216,7 @@ export default function OnboardingScreen() {
                   onChangeText={setAccountName}
                   placeholder="Everyday Checking"
                   placeholderTextColor={colors.placeholder}
-                  className={`rounded-2xl border border-dark-border bg-dark-surface px-4 text-base text-dark-primary ${compact ? "py-3" : "py-4"}`}
+                  className="rounded-2xl border border-dark-border bg-dark-surface px-4 py-3 text-base text-dark-primary"
                 />
               </View>
               <View className={`mt-4 flex-row ${narrow ? "gap-2" : "gap-3"}`}>
@@ -247,7 +239,7 @@ export default function OnboardingScreen() {
                   </Text>
                 </View>
               </View>
-            </ScrollView>
+            </View>
           ) : null}
         </View>
 

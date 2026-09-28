@@ -30,24 +30,24 @@ export default function BudgetsScreen() {
 
   return (
     <SafeAreaView edges={topEdges} className="flex-1 bg-bg">
+      <View className="px-5 pt-3">
+        <ScreenHeader
+          eyebrow="September plan"
+          title="Budgets"
+          action={
+            <View className="h-10 w-10 items-center justify-center rounded-xl bg-accent-500">
+              <Text className="text-xl font-bold text-navy-950">+</Text>
+            </View>
+          }
+        />
+      </View>
       <FlashList
         data={budgets}
         keyExtractor={(budget) => budget.id}
         renderItem={({ item }) => <BudgetRow budget={item} />}
         ItemSeparatorComponent={() => <View className="h-3" />}
         ListHeaderComponent={
-          <View className="gap-6 pb-5">
-            <View className="pt-3">
-              <ScreenHeader
-                eyebrow="September plan"
-                title="Budgets"
-                action={
-                  <View className="h-10 w-10 items-center justify-center rounded-xl bg-accent-500">
-                    <Text className="text-xl font-bold text-navy-950">+</Text>
-                  </View>
-                }
-              />
-            </View>
+          <View className="gap-6 pb-5 pt-6">
             <View className="flex-row gap-3">
               <MetricCard
                 label="Total planned"

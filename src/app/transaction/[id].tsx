@@ -1,5 +1,5 @@
 import { router, useLocalSearchParams } from "expo-router";
-import { Pressable, ScrollView, Text, View } from "react-native";
+import { Pressable, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { DetailRow } from "@/components/detail-row";
@@ -29,7 +29,7 @@ export default function TransactionDetailScreen() {
 
   return (
     <SafeAreaView edges={edges} className="flex-1 bg-bg">
-      <ScrollView contentContainerClassName="gap-6 px-5 pb-8">
+      <View className="flex-1 gap-6 px-5 pb-8">
         <View className="flex-row items-center justify-between pt-3">
           <Pressable
             accessibilityRole="button"
@@ -81,7 +81,7 @@ export default function TransactionDetailScreen() {
             </Text>
           </Pressable>
         </View>
-      </ScrollView>
+      </View>
     </SafeAreaView>
   );
 }

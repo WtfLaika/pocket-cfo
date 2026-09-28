@@ -1,5 +1,5 @@
-import { router } from "expo-router";
 import { FlashList } from "@shopify/flash-list";
+import { router } from "expo-router";
 import { Pressable, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -49,6 +49,7 @@ export default function SettingsScreen() {
     <SafeAreaView edges={topEdges} className="flex-1 bg-bg">
       <FlashList
         data={rows}
+        scrollEnabled={false}
         keyExtractor={(row) => row.label}
         renderItem={({ item: row, index }) => (
           <Pressable

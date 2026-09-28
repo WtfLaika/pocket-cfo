@@ -1,5 +1,5 @@
-import { useMemo } from "react";
 import { FlashList } from "@shopify/flash-list";
+import { useMemo } from "react";
 import { Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -22,6 +22,19 @@ export default function InsightsScreen() {
   );
   return (
     <SafeAreaView edges={topEdges} className="flex-1 bg-bg">
+      <View className="px-5 pt-3">
+        <ScreenHeader
+          eyebrow="Patterns, not pressure"
+          title="Insights"
+          action={
+            <View className="rounded-xl border border-dark-border bg-dark-surface px-3 py-2">
+              <Text className="font-mono text-[11px] font-bold text-dark-tertiary">
+                30 DAYS
+              </Text>
+            </View>
+          }
+        />
+      </View>
       <FlashList
         data={categories}
         keyExtractor={(category) => category}
@@ -43,20 +56,7 @@ export default function InsightsScreen() {
         )}
         ItemSeparatorComponent={() => <View className="h-3" />}
         ListHeaderComponent={
-          <View className="gap-6 pb-5">
-            <View className="pt-3">
-              <ScreenHeader
-                eyebrow="Patterns, not pressure"
-                title="Insights"
-                action={
-                  <View className="rounded-xl border border-dark-border bg-dark-surface px-3 py-2">
-                    <Text className="font-mono text-[11px] font-bold text-dark-tertiary">
-                      30 DAYS
-                    </Text>
-                  </View>
-                }
-              />
-            </View>
+          <View className="gap-6 pb-5 pt-6">
             <View className="flex-row gap-3">
               <MetricCard
                 label="Income"

@@ -1,5 +1,5 @@
-import { router } from "expo-router";
 import { FlashList } from "@shopify/flash-list";
+import { router } from "expo-router";
 import { useMemo, useState } from "react";
 import { Pressable, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -34,6 +34,45 @@ export default function TransactionsScreen() {
 
   return (
     <SafeAreaView edges={topEdges} className="flex-1 bg-bg">
+      <View className="gap-5 px-5 pb-5 pt-3">
+        <ScreenHeader
+          eyebrow="Your money trail"
+          title="Transactions"
+          action={
+            <Pressable
+              accessibilityRole="button"
+              accessibilityLabel="Add transaction"
+              onPress={handleAddTransaction}
+              className="h-10 w-10 items-center justify-center rounded-xl bg-accent-500 pressed:opacity-70">
+              <Text className="text-xl font-bold text-navy-950">+</Text>
+            </Pressable>
+          }
+        />
+        <TextInput
+          value={search}
+          onChangeText={setSearch}
+          placeholder="Search merchants"
+          placeholderTextColor={colors.placeholder}
+          className="rounded-2xl border border-dark-border bg-dark-surface px-4 py-4 text-sm text-dark-primary"
+        />
+        <FlashList
+          horizontal
+          data={transactionCategories}
+          keyExtractor={(item) => item}
+          showsHorizontalScrollIndicator={false}
+          contentContainerClassName="gap-2"
+          renderItem={({ item }) => (
+            <Pressable
+              onPress={getCategoryPressHandler(item)}
+              className={`rounded-full border px-4 py-2.5 ${category === item ? "border-accent-500 bg-accent-500/15" : "border-dark-border bg-dark-surface"}`}>
+              <Text
+                className={`font-mono text-[11px] font-bold ${category === item ? "text-accent-500" : "text-dark-tertiary"}`}>
+                {item}
+              </Text>
+            </Pressable>
+          )}
+        />
+      </View>
       <FlashList
         data={filtered}
         keyExtractor={(transaction) => transaction.id}
@@ -44,49 +83,6 @@ export default function TransactionsScreen() {
           />
         )}
         ItemSeparatorComponent={() => <View className="h-1" />}
-        ListHeaderComponent={
-          <View className="gap-5 pb-5">
-            <View className="pt-3">
-              <ScreenHeader
-                eyebrow="Your money trail"
-                title="Transactions"
-                action={
-                  <Pressable
-                    accessibilityRole="button"
-                    accessibilityLabel="Add transaction"
-                    onPress={handleAddTransaction}
-                    className="h-10 w-10 items-center justify-center rounded-xl bg-accent-500 pressed:opacity-70">
-                    <Text className="text-xl font-bold text-navy-950">+</Text>
-                  </Pressable>
-                }
-              />
-            </View>
-            <TextInput
-              value={search}
-              onChangeText={setSearch}
-              placeholder="Search merchants"
-              placeholderTextColor={colors.placeholder}
-              className="rounded-2xl border border-dark-border bg-dark-surface px-4 py-4 text-sm text-dark-primary"
-            />
-            <FlashList
-              horizontal
-              data={transactionCategories}
-              keyExtractor={(item) => item}
-              showsHorizontalScrollIndicator={false}
-              contentContainerClassName="gap-2"
-              renderItem={({ item }) => (
-                <Pressable
-                  onPress={getCategoryPressHandler(item)}
-                  className={`rounded-full border px-4 py-2.5 ${category === item ? "border-accent-500 bg-accent-500/15" : "border-dark-border bg-dark-surface"}`}>
-                  <Text
-                    className={`font-mono text-[11px] font-bold ${category === item ? "text-accent-500" : "text-dark-tertiary"}`}>
-                    {item}
-                  </Text>
-                </Pressable>
-              )}
-            />
-          </View>
-        }
         ListEmptyComponent={
           <Text className="px-2 py-8 text-center text-sm text-dark-tertiary">
             No matching transactions.
